@@ -21,6 +21,6 @@ fn handle_connection(mut stream: TcpStream) {
        .collect();
 
    let response = String::from("HTTP/1.1 200 OK\r\n\r\nHello");
-   stream.write(response.as_bytes()).expect("Err");
+   stream.write_all(response.as_bytes()).expect("Err");
    println!("Request: {:#?}", http_request);
 }
