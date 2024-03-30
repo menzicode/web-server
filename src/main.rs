@@ -20,7 +20,7 @@ fn handle_connection(mut stream: TcpStream) {
        .take_while(|line| !line.is_empty())
        .collect();
 
+   let response = String::from("HTTP/1.1 200 OK\r\n\r\nHello");
+   stream.write(response.as_bytes()).expect("Err");
    println!("Request: {:#?}", http_request);
-   let _hello = String::from("Hello!");
-   stream.write(&[1]).expect("Fail");
 }
